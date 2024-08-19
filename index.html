@@ -21,41 +21,50 @@
         .btn{
             height: 50px;
         }
+        .btn-left{
+            position: absolute;
+            top: 210px;
+            left: -30px;
+            cursor: pointer;
+        }
+        .btn-right{
+            position: absolute;
+            top: 210px;
+            right: -30px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-   
     <div class="btn-container">
-        <img src="/images/img1.jpg" class="main-image" id="image">
-        <img src="/images/arrow1.png" class="btn" onclick="prev()"/>
-        <img src="/images/arrow2.png" class="btn" onclick="next()" /> 
+        <img src="/images/img1.jpg" class="main-image" id="img">
+        <img src="/images/arrow1.png" class="btn btn-left" onclick="prev()"/>
+        <img src="/images/arrow2.png" class="btn btn-right" onclick="next()" /> 
     </div>
     <script>
-       const imagesArr=["/images/img0.jpg",
-       "/images/img1.jpg"
+       const imagesArr=[
+        "./images/img0.jpg",
+       "./images/img1.jpg",
+       "./images/img2.jpg",
+       "./images/img3.jpg",
+       "./images/img4.jpg",
+       "./images/img5.jpg",
+       "./images/img6.jpg",
+       "./images/img7.jpg"
+       ];
 
-       ]
-
-        let imgindex = 0;
-        const imgelement = document.getElementById('image');
+        let imgIndex = 0;
+        const imgelement = document.getElementById('img');
 
         function prev(){
-            if(imgindex==0){
-                imgindex = imagesArr.length - 1;
-            }
-            else{
-                imgindex--;
-            }
-            imgelement.src=imagesArr(imgindex);
+          (imgIndex==0) ? imgIndex = imagesArr.length - 1 : imgIndex--;
+        
+          imgelement.src=imagesArr(imgIndex);
         }
         function next(){
-            if(imgindex==imagesArr.length - 1){
-                imgindex= 0;
-            }
-            else{
-                imgindex++;
-            }
-            imgelement.src=imagesArr(imgindex);
+          (imgIndex==imagesArr.length - 1) ? imgIndex= 0 : imgIndex++;
+            
+          imgelement.src=imagesArr(imgIndex);
         }
     </script>
 </body>
